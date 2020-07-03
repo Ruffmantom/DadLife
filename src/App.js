@@ -8,7 +8,7 @@ import Community from "./Pages/Community";
 // import pages
 // import components
 
-import './App.css';
+
 
 function App() {
   return (
