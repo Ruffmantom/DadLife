@@ -1,1 +1,16 @@
 /* main styles and colors */
+*{
+    margin: 0;
+    padding: 0;
+}
+/* 
+colors
+#EFEFEF LT GRAY
+#45D3E5 LT BLUE
+#35A8B6 DK BLUE
+
+
+*/
+body{
+    background: #EFEFEF ;
+}

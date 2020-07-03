@@ -1,0 +1,30 @@
+.header{
+    position: fixed;
+    top: 0;
+    z-index: 100;
+    background: #45D3E5 ;
+    width: 100%;
+    height: 105px;
+    border-radius: 0 0 15px 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+    text-align: center;
+    box-shadow: 0 7px 13px #0000002f;
+}
+.logoDiv{
+    height: 40%;
+    padding: 10px;
+    margin: auto;
+    background-color: #45D3E5;
+    border-radius: 100px;
+    box-shadow: 7px 7px 13px #0000002f, -7px -7px 13px #ffffff48;
+}
+#headLogo{
+    height: 100%;
+}
+#title{
+    margin: auto;
+    color: #35A8B6;
+}
