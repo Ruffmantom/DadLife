@@ -6,6 +6,7 @@
 /* 
 colors
 #EFEFEF LT GRAY
+#8f8f8f DK GRAY
 #45D3E5 LT BLUE
 #35A8B6 DK BLUE
 
@@ -144,12 +145,20 @@ input::placeholder{
     flex-direction: column;
 }
 
-
-
-
-.sign-up-container{
-    display: none;
-    
-    flex-direction: column;
-    background: white;
+.slider{
+    position: absolute;
+    bottom: 0;
+    height: 180px;
+    background-color: white;
+    width: 100%;
+    border-radius: 13px 13px 0 0;
+    color: #8f8f8f;
 }
+.slide-icon{
+    width: 50px;
+    height: 5px;
+    background-color: #EFEFEF;
+    border-radius: 100px;
+    margin: 15px auto;
+}
+
