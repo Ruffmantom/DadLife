@@ -44,29 +44,41 @@
                 <br>
                 <button type="submit" class="main-btn">Log In</button>
             </form>
-            <div class="slider">
+            <div id="slider" class="slider" ontouchstart="slideUp()" >
                 <div class="slide-icon">
 
                 </div>
-                <p class="desc">Swipe to sign up</p>
+                <p id="slide-up-desc"class="desc">Swipe to sign up</p>
+                <div id="sign-up-container">
+                    <h2 class="leadTitle sign-up-title">Sign Up</h2>
+                    <p class="desc">Join the DadLife Community</p>
+                    <form class="sign-up-form" action="submit">
+                        <p class="label">Username</p>
+                        <input type="text" name="username" placeholder="Choose a username">
+                        <p class="label">Password</p>
+                        <input type="password" name="password" placeholder="Choose a password">
+                        <p class="label">Confirm Password</p>
+                        <input type="password" name="password" placeholder="Re enter password">
+                        <br>
+                        <button type="submit" class="main-btn">Log In</button>
+                    </form>
+                </div>
             </div>
 
-            <!-- <div class="sign-up-container">
-                <h2 class="leadTitle">Sign Up</h2>
-                <p class="desc">Join the DadLife Community</p>
-                <form action="submit">
-                    <p class="label">Username</p>
-                    <input type="text" name="username" placeholder="Choose a username">
-                    <p class="label">Password</p>
-                    <input type="password" name="password" placeholder="Choose a password">
-                    <p class="label">Confirm Password</p>
-                    <input type="password" name="password" placeholder="Re enter password">
-                    <br>
-                    <button type="submit" class="main-btn">Log In</button>
-                </form>
-            </div> -->
         </div>
     </div>
 </body>
+<script>
+
+    var slider = document.getElementById("slider");
+
+    document.addEventListener("touchstart", (e)=>{
+        console.log(e);
+    });
+    function slideUp(){
+        console.log("wanting to slide")
+    }
+
+</script>
 
 </html>
