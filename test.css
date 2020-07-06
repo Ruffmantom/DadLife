@@ -36,7 +36,7 @@ body{
     margin: auto;
     background-color: #45D3E5;
     border-radius: 100px;
-    box-shadow: 7px 7px 13px #0000002f, -7px -7px 13px #ffffff48;
+    box-shadow: 7px 7px 13px #0000002f, -7px -7px 13px #ffffff38;
 /* box-shadow: -7px -7px 10px #ffffff48; */
 }
 #headLogo{
@@ -65,7 +65,7 @@ body{
     margin: auto;
     padding: 13px;
     border-radius: 100px;
-    box-shadow: 7px 7px 13px #0000002f, -7px -7px 10px #ffffffcb ;
+    box-shadow: 7px 7px 13px #0000002f, -7px -7px 14px #ffffff38 ;
 }
 .icon-div > img{
  height: 100%;
@@ -179,4 +179,28 @@ input::placeholder{
 }
 #sign-up-container{
     display: none;
+}
+/* joke card styles */
+.joke-container{
+    width: 80%;
+    padding:12px 12px 0 12px;
+    margin: 35px auto;
+    background: white ;
+    border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 7px 7px 13px #0000002f;
+}
+.joke{
+    line-height: 1.5;
+}
+#joke-add{
+    align-self: flex-end;
+    height: 20px;
+    padding: 10px 0;
+}
+/* test stuff */
+.test-container{
+    padding: 120px 0;
+    height: 100%;
 }
