@@ -1,24 +1,38 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import Header from "../../Components/Header";
 import Footer from "../../Components/Footer";
+import API from "../../utils/API";
 // import components
 import CommunityCard from "../../Components/CommunityCard";
 import "./style.css";
 
 
-// ajax call to get posts from the users
 // order posts from newest to oldest
 // get the like button to work
 export default function Community() {
     var communityTitle = "Community";
+    const [posts, setPosts] = useState([]);
+    // load all posts when page is loaded
+    useEffect(()=>{
+        loadPosts()
+    }, [])
+    // ajax call to get posts from the users
+    function loadPosts() {
+        API.getPosts()
+            .then(res => {
+                setPosts(res.data)
+                console.log("posts here" + res.data)
+            })
+            .catch(err => console.log(err));
+    }
     return (
         <div className="community-body">
             <Header
-            pageTitle = {communityTitle.toUpperCase()}
+                pageTitle={communityTitle.toUpperCase()}
             />
-            <CommunityCard/>
+            <CommunityCard />
             {/* content here */}
-            <Footer/>
+            <Footer />
         </div>
     )
 }
