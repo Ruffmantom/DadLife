@@ -12,10 +12,12 @@ import "./style.css";
 export default function Community() {
     var communityTitle = "Community";
     const [posts, setPosts] = useState([]);
+    
     // load all posts when page is loaded
     useEffect(()=>{
         loadPosts()
     }, [])
+
     // ajax call to get posts from the users
     function loadPosts() {
         API.getPosts()
