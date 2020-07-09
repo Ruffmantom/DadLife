@@ -2,10 +2,10 @@ import React from 'react'
 import "./style.css"
 import likedBtn from "../../assets/images/icons/blackIcons/like.png";
 // replace this image with user posted
-import postImage from "../../assets/images/pjandbria2.jpg";
+// import postImage from "../../assets/images/pjandbria2.jpg";
 
 
-
+ 
 export default function CommunityCard(props) {
     return (
         <div>

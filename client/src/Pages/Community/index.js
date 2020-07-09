@@ -23,7 +23,7 @@ export default function Community() {
         API.getPosts()
             .then(res => {
                 setPosts(res.data)
-                console.log(res.data)
+                console.log(res.data[0])
             })
             .catch(err => console.log(err));
     }
@@ -32,8 +32,13 @@ export default function Community() {
             <Header
                 pageTitle={communityTitle.toUpperCase()}
             />
-            <CommunityCard />
             {/* content here */}
+            {posts.map(res=>(
+                <CommunityCard
+                userName={res.userName}
+                postDesc={res.description}
+                />
+            ))}
             <Footer />
         </div>
     )
