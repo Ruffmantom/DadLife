@@ -23,7 +23,7 @@ export default function Community() {
         API.getPosts()
             .then(res => {
                 setPosts(res.data)
-                console.log("posts here" + res.data)
+                console.log(res.data)
             })
             .catch(err => console.log(err));
     }
