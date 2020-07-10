@@ -4,7 +4,11 @@ import Footer from "../../Components/Footer";
 import API from "../../utils/API";
 // import components
 import CommunityCard from "../../Components/CommunityCard";
-import "./style.css";
+import "./style.css"; 
+// images
+import commentFilled  from "../../assets/images/newicons/comment-filled.png";
+import profile from "../../assets/images/newicons/profile.png";
+import plus from "../../assets/images/newicons/plus.png";
 
 
 // order posts from newest to oldest
@@ -23,7 +27,7 @@ export default function Community() {
         API.getPosts()
             .then(res => {
                 setPosts(res.data)
-                console.log(res.data[0])
+                // console.log(res.data[0])
             })
             .catch(err => console.log(err));
     }
@@ -39,7 +43,11 @@ export default function Community() {
                 postDesc={res.description}
                 />
             ))}
-            <Footer />
+            <Footer
+            jokes={plus}
+            community={commentFilled}
+            profile={profile}
+            />
         </div>
     )
 }

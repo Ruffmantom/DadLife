@@ -5,6 +5,11 @@ import Footer from "../../Components/Footer";
 import JokeCard from "../../Components/JokeCard";
 import "./style.css";
 import { startSession } from 'mongoose';
+// images
+import comment from "../../assets/images/newicons/comment.png";
+import profile from "../../assets/images/newicons/profile.png";
+import plusFilled from "../../assets/images/newicons/plus-filled.png";
+
 
 
 // ajax call to save saved joke to database
@@ -13,13 +18,14 @@ import { startSession } from 'mongoose';
 
 export default function Jokes() {
     var jokesTitle = "Dad Jokes";
-    let [jokeArr, setJokeArr] = useState([]);
+    const [jokeArr, setJokeArr] = useState([]);
 
     useEffect(() => {
         jokeSearch()
         console.log("jokeArr inside of useEffect")
         console.log(jokeArr)
         console.log("----------------------------")
+       
     }, [])
 
     // joke api call
@@ -30,7 +36,7 @@ export default function Jokes() {
             fetch(
                 queryURL,
                 {
-                    method: "GET",
+                    method: "GET", 
                 }
             )
                 .then(res => res.json())
@@ -54,7 +60,11 @@ export default function Jokes() {
                 joke={jokeArr}
             />
 
-            <Footer />
+            <Footer
+            jokes={plusFilled}
+            community={comment}
+            profile={profile}
+            />
         </div>
     )
 }

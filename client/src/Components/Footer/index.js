@@ -1,23 +1,32 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import "./style.css";
-// import images
-import plus from "../../assets/images/newicons/plus.png";
-import comment from "../../assets/images/newicons/comment.png";
-import profile from "../../assets/images/newicons/profile.png";
+
 // this will have just the three icons
 export default function Footer(props) {
+
+
     return (
         <div>
             <div className="footer">
-                <div className="icon-div plus">
-                    <img src={plus} alt="jokes" />
-                </div>
-                <div className="icon-div comment">
-                    <img src={comment} alt="jokes" />
-                </div>
-                <div className="icon-div profile">
-                    <img src={profile} alt="jokes" />
-                </div>
+                <Link to="/jokes" className="icon-div plus">
+
+                    <img src={props.jokes} alt="jokes" />
+
+                </Link>
+
+                <Link to="/community" className="icon-div comment">
+
+                    <img src={props.community} alt="jokes" />
+
+                </Link>
+
+                <Link to="/profile" className="icon-div profile">
+
+                    <img src={props.profile} alt="jokes" />
+
+                </Link>
+
             </div>
 
         </div>
