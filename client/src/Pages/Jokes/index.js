@@ -22,10 +22,11 @@ export default function Jokes() {
 
     useEffect(() => {
         jokeSearch()
+
         console.log("jokeArr inside of useEffect")
         console.log(jokeArr)
         console.log("----------------------------")
-       
+
     }, [])
 
     // joke api call
@@ -36,7 +37,7 @@ export default function Jokes() {
             fetch(
                 queryURL,
                 {
-                    method: "GET", 
+                    method: "GET",
                 }
             )
                 .then(res => res.json())
@@ -55,15 +56,18 @@ export default function Jokes() {
                 pageTitle={jokesTitle.toUpperCase()}
             />
             {/* content here */}
+            {jokeArr.length > 0 && (
+                jokeArr.map(res => (
+                    <JokeCard
+                        joke={res}
 
-            <JokeCard
-                joke={jokeArr}
-            />
-
+                    />
+                )))
+            }
             <Footer
-            jokes={plusFilled}
-            community={comment}
-            profile={profile}
+                jokes={plusFilled}
+                community={comment}
+                profile={profile}
             />
         </div>
     )
