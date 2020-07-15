@@ -5,6 +5,8 @@ import Footer from "../../Components/Footer";
 import JokeCard from "../../Components/JokeCard";
 import "./style.css";
 import { startSession } from "mongoose";
+// import jokes
+import jokeList from '../../assets/details/index.json'
 // images
 import comment from "../../assets/images/newicons/comment.png";
 import profile from "../../assets/images/newicons/profile.png";
@@ -13,50 +15,27 @@ import plusFilled from "../../assets/images/newicons/plus-filled.png";
 // import jokeSearch from "../../utils/jokeSearch";
 
 var jokesTitle = "Dad Jokes";
-var queryURL = "https://icanhazdadjoke.com/slack";
-
-// const [jokeArr, setJokeArr] = useState([]);
-// jokeSearch.jokeSearch(jokeArr, setJokeArr);
-// console.log(jokeArr)
-
+console.log(jokeList.jokes[0].text)
 class Jokes extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      jokeList: [],
-      isLoaded: false,
-    };
-  }
 
-  componentDidMount() {
-    fetch(queryURL)
-      .then((res) => {
-        res.json();
-      })
-      .then((json) => {
-        this.setState({
-          isLoaded: true,
-          jokeList: json,
-        });
-      });
-  }
+
 
   render() {
-    const { isLoaded, jokeList } = this.state;
-    if (!isLoaded) {
-      return <div>loading..</div>;
-    } else {
-      return (
-        <div className="joke-body">
-          <Header pageTitle={jokesTitle.toUpperCase()} />
-          {/* content here */}
-          {jokeList.map((item) => (
-            <JokeCard joke={item} />
-          ))}
-          <Footer jokes={plusFilled} community={comment} profile={profile} />
-        </div>
-      );
-    }
+    const jokes = jokeList.jokes;
+
+    return (
+      <div className="joke-body">
+        <Header pageTitle={jokesTitle.toUpperCase()} />
+        {/* content here */}
+        {jokes.map(item => (
+          <JokeCard
+            joke={item.text}
+          />
+        ))}
+        <Footer jokes={plusFilled} community={comment} profile={profile} />
+      </div>
+    );
+
   }
 }
 

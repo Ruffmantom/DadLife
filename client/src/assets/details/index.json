@@ -1,0 +1,45 @@
+{
+    "jokes": [
+        {
+            "id": 1,
+            "text": "I used to think I was indecisive, but now I'm not sure."
+        },
+        {
+            "id": 2,
+            "text": "I hate perforated lines, they're tearable."
+        },
+        {
+            "id": 3,
+            "text": "I gave my friend 10 puns hoping that one of them would make him laugh. Sadly, no pun in ten did."
+        },
+        {
+            "id": 4,
+            "text": "Why was the broom late for the meeting? He overswept."
+        },
+        {
+            "id": 5,
+            "text": "R.I.P. boiled water. You will be mist."
+        },
+        {
+            "id": 6,
+            "text": "Why do trees seem suspicious on sunny days? Dunno, they're just a bit shady."
+        },
+        {
+            "id": 7,
+            "text": "Where do bees go to the bathroom?  The BP station."
+        },
+        {
+            "id": 8,
+            "text": "What is the least spoken language in the world?\r\nSign Language"
+        },
+        {
+            "id": 9,
+            "text": "Why did the scarecrow win an award? Because he was outstanding in his field."
+        },
+        {
+            "id": 10,
+            "text": "Don't tell secrets in corn fields. Too many ears around."
+        }
+    ]   
+    
+}
