@@ -4,6 +4,8 @@ import logo from "../../assets/images/icons/blackIcons/logoBK.png"
 
 
 export default function Signup() {
+    
+
 
     return (
         <div>
@@ -22,10 +24,10 @@ export default function Signup() {
                         <br />
                         <button type="submit" className="main-btn">Log In</button>
                     </form>
-                    <div id="slider" className="slider" ontouchstart="slideUp()">
+                    <div id="slider" className="slider" onClick={moveUp()}>
                         <div className="slide-icon">
                         </div>
-                        <p id="slide-up-desc" className="desc">Swipe to sign up</p>
+                        <p id="slide-up-desc" className="desc">Click to sign up</p>
                         <div id="sign-up-container">
                             <h2 className="leadTitle sign-up-title">Sign Up</h2>
                             <p className="desc">Join the DadLife Community</p>
@@ -37,7 +39,7 @@ export default function Signup() {
                                 <p className="label">Confirm Password</p>
                                 <input type="password" name="password" placeholder="Re enter password" />
                                 <br />
-                                <button type="submit" className="main-btn">Log In</button>
+                                <button type="submit" className="main-btn">Sign Up</button>
                             </form>
                         </div>
                     </div>
