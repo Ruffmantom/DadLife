@@ -4,7 +4,7 @@ import Footer from "../../Components/Footer";
 // import components
 import JokeCard from "../../Components/JokeCard";
 import "./style.css";
-import { startSession } from "mongoose";
+// import { startSession } from "mongoose";
 // import jokes
 import jokeList from '../../assets/details/index.json'
 // images
@@ -16,6 +16,7 @@ import plusFilled from "../../assets/images/newicons/plus-filled.png";
 
 var jokesTitle = "Dad Jokes";
 console.log(jokeList.jokes[0].text)
+
 class Jokes extends React.Component {
 
 

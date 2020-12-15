@@ -6,7 +6,9 @@ import logo from "../../assets/images/icons/blackIcons/logoBK.png"
 export default function Signup() {
     
 
-
+    const moveUp=()=>{
+        console.log("moving up")
+    }
     return (
         <div>
             <div className="container">
