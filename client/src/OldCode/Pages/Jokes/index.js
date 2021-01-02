@@ -6,7 +6,7 @@ import JokeCard from "../../Components/JokeCard";
 import "./style.css";
 // import { startSession } from "mongoose";
 // import jokes
-import jokeList from '../../assets/details/index.json'
+import jokeList from '../../../assets/details/index.json'
 // images
 import comment from "../../assets/images/newicons/comment.png";
 import profile from "../../assets/images/newicons/profile.png";
