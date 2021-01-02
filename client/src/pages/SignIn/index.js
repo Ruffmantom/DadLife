@@ -5,7 +5,7 @@ import "./style.css";
 // api calls
 import { signIn } from "../../auth/index";
 // import images
-import logo from "../../assets/images/newicons/logoBK.png";
+import logo from "../../assets/images/newicons/logowht.svg";
 export default function SignIn() {
   const history = useHistory();
 
@@ -62,17 +62,13 @@ export default function SignIn() {
       </div>
     );
   const FormComponent = () => (
-    <div className="user-sign-up-in-cont">
-      <div className="comapany-welcome">
-        <Link to="/">
-          <img src={logo} alt="" />
-        </Link>
+    <div className="ua-cont">
+      <img className="si-su-logo" src={logo} alt="#" />
         {showError()}
         {showLoading()}
-        <h3>Welcome!</h3>
-        <p style={{ marginTop: "15px" }}>Please sign in</p>
-      </div>
-      <form className="user-sign-in" onSubmit={clickSignIn}>
+        <h3>Dad Life</h3>
+        <p style={{ marginTop: "15px" }}>Sign In</p>
+      <form className="ua-form" onSubmit={clickSignIn}>
         <input
           value={userName}
           type="text"

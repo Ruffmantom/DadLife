@@ -1,0 +1,45 @@
+.ua-cont{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    height: 100vh;
+}
+.ua-cont>p, .ua-cont>h3{
+    color: white;
+}
+.ua-form{
+    display: flex;
+    flex-direction: column;
+    min-width: 270px;
+    margin: 20px auto;
+}
+.si-su-logo{
+    height: 15%;
+    padding-bottom: 40px;
+}
+input,textarea{
+    text-align: left;
+    border-radius: 5px;
+    padding: 10px 0 10px 10px;
+    margin: 10px 0;
+    border: none;
+    box-shadow: 0 6px 13px rgba(0, 0, 0, 0.315);
+}
+textarea:focus, input:focus{
+    outline: none;
+}
+button{
+    padding: 10px;
+    border-radius: 5px;
+    background: #279AF1;
+    border: none;
+    box-shadow: 0 6px 13px rgba(0, 0, 0, 0.315);
+    color: white;
+    margin-top: 25px;
+}
+.ua-cont>a{
+    color: white;
+    text-decoration: none;
+}

@@ -3,7 +3,7 @@ import { Link, useHistory } from "react-router-dom";
 import "./style.css";
 // api calls
 import { signUp } from "../../auth/index";
-import logo from "../../assets/images/newicons/logoBK.png"
+import logo from "../../assets/images/newicons/logowht.svg"
 export default function SignUp() {
   const history = useHistory();
 
@@ -34,10 +34,10 @@ export default function SignUp() {
   };
   const validationColors = {
     passed: {
-      boxShadow: "inset 0px 0px 0px 2px #45ba81",
+      boxShadow: "inset 0px 0px 0px 2px #279AF1",
     },
     failed: {
-      boxShadow: "inset 0px 0px 0px 2px #FF5454",
+      boxShadow: "inset 0px 0px 0px 2px #D7263D",
     },
     none: {
       border: "none",
@@ -109,10 +109,10 @@ export default function SignUp() {
   );
   const formComponent = () => (
     <div className="ua-cont">
-      <img src={logo} alt="#" />
+      <img className="si-su-logo" src={logo} alt="#" />
       {error ? showError() : ""}
       {success ? showSuccess() : ""}
-      <h3>Sign Up to start using Dad Life</h3>
+      <p>Sign Up to start using Dad Life</p>
       <form className="ua-form" onSubmit={(e) => clickSubmit(e)}>
         <input
           type="text"
@@ -126,7 +126,7 @@ export default function SignUp() {
         />
         <input
           type="password"
-          onChange={handleInputs("userName")}
+          onChange={handleInputs("password")}
           placeholder="Choose a Password"
         />
         <input
@@ -137,7 +137,7 @@ export default function SignUp() {
         />
         <button type="submit">Sign Up</button>
       </form>
-      <Link to="/auth/">Already have account? Sign In</Link>
+      <Link to="/signin">Already have account? Sign In</Link>
     </div>
   );
   return <div>{formComponent()}</div>;

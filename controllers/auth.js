@@ -40,8 +40,8 @@ exports.signupByAdmin = (req, res) => {
 
 exports.signin = (req, res) => {
     //find the user based on email
-    const { email, password } = req.body;
-    User.findOne({ email }, (err, user) => {
+    const { userName, password } = req.body;
+    User.findOne({ userName }, (err, user) => {
         if (err || !user) {
             return res.status(400).json({
                 error: 'User with that email dose not exist. Please signup'
@@ -59,8 +59,8 @@ exports.signin = (req, res) => {
         // persist the token as 't' in cookie w expire date
         res.cookie('t', token, { expire: new Date() + 9999 })
         // return res with user and token to frontend client
-        const { _id, fName, lName, email, role, company } = user
-        return res.json({ token, user: { _id, email, fName, lName, role, company } });
+        const { _id, userName, role } = user
+        return res.json({ token, user: { _id, userName, role } });
     })
 }
 

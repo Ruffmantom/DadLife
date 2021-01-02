@@ -1,22 +1,22 @@
-import { API } from '../config';
-// there are some functions in here that are in the core/adminApi.js and core/apiCore.js files.
-// this is all test code
+import { API } from '../config.js';
+
 export const signUp = (user) => {
     console.log(user);
-    return fetch(`${API}/signup`, {
-        method: "POST",
-        headers: {
-            Accept: 'application/json',
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(user)
-    })
-        .then(res => {
-            return res.json()
-        })
-        .catch(err => {
-            console.log(err)
-        })
+    console.log(API);
+    // return fetch(`${API}/signup`, {
+    //     method: "POST",
+    //     headers: {
+    //         Accept: 'application/json',
+    //         'Content-Type': 'application/json'
+    //     },
+    //     body: JSON.stringify(user)
+    // })
+    //     .then(res => {
+    //         return res.json()
+    //     })
+    //     .catch(err => {
+    //         console.log(err)
+    //     })
 }
 export const signIn = (user) => {
     return fetch(`${API}/signin`, {
