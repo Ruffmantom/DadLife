@@ -28,15 +28,20 @@ export default function SignIn() {
   const clickSignIn = (e) => {
     e.preventDefault();
     setValues({ ...values, error: false, loading: true });
-    signIn({ userName, password }).then((data) => {
-      if (data.error) {
-        setValues({ ...values, error: data.error, loading: false });
-      } else {
-        authenticate(data, () => {
-          setValues({ ...values, redirectToReferrer: true });
-        });
-      }
-    });
+    if(userName === ""){
+      setValues({...values,error:"Please Enter a Username to continue"})
+    } else{
+      signIn({ userName, password }).then((data) => {
+        if (data.error) {
+          setValues({ ...values, error: data.error, loading: false });
+        } else {
+          authenticate(data, () => {
+            setValues({ ...values, redirectToReferrer: true });
+          });
+        }
+      });
+    }
+    
   };
   const redirectUser = () => {
     if (redirectToReferrer) {
@@ -57,7 +62,7 @@ export default function SignIn() {
   );
   const showLoading = () =>
     loading && (
-      <div className="success-message">
+      <div className="alert-info">
         <p>Loading ...</p>
       </div>
     );

@@ -1,9 +1,12 @@
-import React from 'react'
-
+import React from 'react';
+import Layout from "../../components/userComponents/Layout";
 export default function CommunityPage() {
     return (
-        <div>
-            community page
-        </div>
+        <Layout
+        title='Community'
+        page="dlc"
+        >
+            Community Page
+        </Layout>
     )
 }

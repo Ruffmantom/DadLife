@@ -44,9 +44,9 @@ exports.signin = (req, res) => {
     User.findOne({ userName }, (err, user) => {
         if (err || !user) {
             return res.status(400).json({
-                error: 'User with that email dose not exist. Please signup'
+                error: 'User with that Username dose not exist. Please signup'
             })
-        }
+        } 
         // if user is found make shure the email and pass match
         // create authenticate method
         if (!user.authenticate(password)) {

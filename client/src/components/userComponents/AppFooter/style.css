@@ -1,0 +1,23 @@
+.dl-footer{
+    width: 100%;
+    /* padding:10px 0; */
+    background: black;
+    height: 55px;
+    position: fixed;
+    bottom: 0;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+.dl-f-icon{
+    height: 30px;
+    transition: height 50ms ease-in-out;
+    margin: auto;
+}
+.dl-f-active{
+    height: 35px;
+    transition: height 50ms ease-in-out;
+}
+.dl-f-l{
+    display: flex;
+}

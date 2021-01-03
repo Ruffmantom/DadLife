@@ -43,3 +43,21 @@ button{
     color: white;
     text-decoration: none;
 }
+.alert-info{
+    background: #279AF1;
+    padding: 7px;
+    color: white;
+    font-weight: 700;
+    margin-bottom: 15px;
+}
+.alert-danger{
+    background: #D7263D;
+    padding: 7px;
+    color: white;
+    font-weight: 700;
+    margin-bottom: 15px;
+}
+button:focus{
+    border: none;
+    outline: none;
+}

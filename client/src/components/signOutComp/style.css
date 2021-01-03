@@ -1,0 +1,10 @@
+.dl-p-signout{
+    width: 70px;
+    padding: 10px 0;
+    border-radius: 0 0 0 30px;
+    background: black;
+    position: fixed;
+    top: 0;
+    right: 0;
+    display: flex;
+}

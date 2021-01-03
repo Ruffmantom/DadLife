@@ -1,0 +1,14 @@
+.dl-layout{
+    height: 100vh;
+    text-align: center;
+}
+.dl-l-cont{
+    height: 100%;
+    overflow: scroll;
+    padding-top: 25px;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+.dl-l-cont::-webkit-scrollbar {
+    display: none;
+  }
