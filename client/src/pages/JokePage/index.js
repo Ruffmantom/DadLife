@@ -19,7 +19,7 @@ export default function JokePage() {
   const [jokeList, setJokeList] = useState(undefined);
   const [error, setError] = useState(undefined);
   const [loaded, setLoaded] = useState(false);
-
+// the goal is to get ten jokes loaded in and set them into the joke card
 
 const init=()=>{
   !(jokeList || error) && fetch(queryURL,{
