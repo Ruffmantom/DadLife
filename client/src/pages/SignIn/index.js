@@ -30,6 +30,8 @@ export default function SignIn() {
     setValues({ ...values, error: false, loading: true });
     if(userName === ""){
       setValues({...values,error:"Please Enter a Username to continue"})
+    }else if(password=== ""){
+      setValues({...values,error:"Please provide a Password"})
     } else{
       signIn({ userName, password }).then((data) => {
         if (data.error) {
