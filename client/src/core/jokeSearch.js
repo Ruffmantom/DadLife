@@ -16,13 +16,16 @@ var queryURL = "https://icanhazdadjoke.com/";
 //         })
 //     // }
 // };
-export const getJokes = () => {
-  fetch(queryURL, {
+async function getJ() {
+  const jokeData = await fetch(queryURL, {
     method: "GET",
     headers: {
       Accept: "application/json",
     },
-  })
-    .then((response) => response.json())
-    //.then((data) => console.log(data));
+  });
+  const jokeObj = await jokeData.json();
+  console.log(jokeObj);
+}
+export const getJokes = () => {
+  getJ();
 };

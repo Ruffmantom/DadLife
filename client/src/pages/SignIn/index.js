@@ -10,8 +10,8 @@ export default function SignIn() {
   const history = useHistory();
 
   const [values, setValues] = useState({
-    userName: "",
-    password: "",
+    userName: "tester1",
+    password: "pass123!",
     error: "",
     success: false,
     loading: false,
