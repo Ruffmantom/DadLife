@@ -1,3 +1,4 @@
+/* end of sign out link */
 .dl-p-s-link>img{
     height: 20px;
 
@@ -6,3 +7,34 @@
     margin: auto;
     padding-left: 10px;
 }
+/* end of sign out link */
+/* start of profile styles */
+.dlp-head{
+    text-align: left;
+    height: 200px;
+    margin-top: -25px;
+    padding: 50px 50px 0 20px;
+}
+.dlp-image-cont{
+    height: 100px;
+    width: 100px;
+    border-radius: 100px;
+    background: white;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 11px;
+    /* box-shadow:  0 6px 13px rgba(0, 0, 0, 0.26); */
+}
+.dlp-text{
+    padding: 10px 0;
+    font-size: 18px;
+}
+.dlp-image-cont>img{
+    height: 70%;
+    margin: auto;
+}
+.dlp-edit-btn{
+    color: #D7263D;
+}
+
+/* start of profile styles */
