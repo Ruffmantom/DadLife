@@ -8,7 +8,7 @@ const postSchema = new Schema({
         ref: "User",
     },
     postText: { type: String, required: true },
-    liked: { type: Number, required: true },
+    likes: { type: Number, default:0 }
 });
 const Posts = mongoose.model("Posts", postSchema);
 module.exports = Posts;
