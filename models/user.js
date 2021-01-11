@@ -22,19 +22,6 @@ const userSchema = new mongoose.Schema({
     role: {
         type: Number,
         default: 0
-    },
-    verified: {
-        type: Boolean,
-        default: false
-    },
-    vCode: {
-        type: String,
-        trim: true,
-        // required:true
-    },
-    history: {
-        type: Array,
-        default: []
     }
 }, { timestamps: true });
 

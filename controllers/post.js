@@ -1,31 +1,63 @@
-const Post = require('../models/post');
-const { errorHandler } = require('../helpers/dbErrorHandler');
+const Post = require("../models/post");
+const { errorHandler } = require("../helpers/dbErrorHandler");
 // define the methods for the posts controller
-module.exports = {
-    findAll: function (req, res) {
-        Post
-            .find(req.query)
-            .sort({ date: -1 })
-            .then(dbModel => res.json(dbModel))
-            .catch(err => res.status(422).json(err));
-    },
-    create: function (req, res) {
-        Post
-            .create(req.body)
-            .then(dbModel => res.json(dbModel))
-            .catch(err => res.status(422).json(err));
-    },
-    update: function (req, res) {
-        Post
-            .findOneAndUpdate({ _id: req.params.id }, req.body)
-            .then(dbModel => res.json(dbModel))
-            .catch(err => res.status(422).json(err));
-    },
-    remove: function(req, res) {
-        Post
-          .findById({ _id: req.params.id })
-          .then(dbModel => dbModel.remove())
-          .then(dbModel => res.json(dbModel))
-          .catch(err => res.status(422).json(err));
-      }
+
+exports.create = (req, res) => {
+  const post = new Post(req.body);
+  post.save((err, data) => {
+    if (err) {
+      return res.status(400).json({
+        error: errorHandler(err),
+      });
+    }
+    res.send({ data });
+  });
+};
+
+exports.getAllPosts = (req,res) => {
+    Post.find()
+    .exec((err, post) => {
+        if (err) {
+            return res.status(400).json({
+                error: errorHandler(err)
+            })
+        }
+        res.json(post)
+    })
+};
+
+const createUsersPostList = (allPosts, userId) => {
+    const postList = [];
+    let post;
+    if (userId) {
+        post = allPosts.filter(p => p.user == userId);
+    }
+    for (let p of post) {
+        postList.push(p)
+    };
+    return postList;
 }
+exports.getUserPosts = (req,res) => {
+    let userId = req.params.userId;
+    Post.find()
+    .exec((err, posts) => {
+        if (err) {
+            return res.status(400).json({
+                error: errorHandler(err)
+            })
+        }
+        if (posts) {
+            const postList = createUsersPostList(posts, userId);
+            res.status(200).json({ postList })
+        };
+    });
+};
+
+
+exports.removePost = () => {
+  console.log("removePost");
+};
+
+exports.adminRemovePost = () => {
+  console.log("adminRemovePost");
+};

@@ -2,7 +2,7 @@ const express = require("express");
 const router = express.Router();
 
 const {
-  createPost,
+    create,
   getAllPosts,
   getUserPosts,
   removePost,
@@ -13,16 +13,16 @@ const { userById } = require("../controllers/user");
 
 //what i want to accomplish
 // need a route for creating a new post
-router.post("/post/create/userId", requireSignin, isAuth, createPost);
+router.post("/post/create/:userId", requireSignin, isAuth, create); //works!
 // need a route to get all posts for the community page.
-router.get("/posts", requireSignin, isAuth, getAllPosts);
+router.get("/community/posts/:userId", requireSignin, isAuth, getAllPosts); // works
 // need to get all users posts on profile page.
-router.get("/posts/userId", requireSignin, isAuth, getUserPosts);
+router.get("/posts/:userId", requireSignin, isAuth, getUserPosts); // works
 // need a route for deleting posts that are the users
-router.delete("/post/delete/userId/postId", requireSignin, isAuth, removePost);
+router.delete("/post/delete/:userId/:postId", requireSignin, isAuth, removePost);
 // need a route for deleting posts for admin
 router.delete(
-  "/post/delete/userId/postId",
+  "/admin/post/delete/:userId/:postId",
   requireSignin,
   isAuth,
   isAdmin,
@@ -34,3 +34,5 @@ router.delete(
 // router.delete('/user/:userId', requireSignin, isAuth, read);
 
 router.param("userId", userById);
+
+module.exports = router;
