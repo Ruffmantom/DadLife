@@ -19,7 +19,7 @@ router.get("/community/posts/:userId", requireSignin, isAuth, getAllPosts); // w
 // need to get all users posts on profile page.
 router.get("/posts/:userId", requireSignin, isAuth, getUserPosts); // works
 // need a route for deleting posts that are the users
-router.delete("/post/delete/:userId/:postId", requireSignin, isAuth, removePost);
+router.delete("/post/delete/:userId/:postId/:userPostId", requireSignin, isAuth, removePost);
 // need a route for deleting posts for admin
 router.delete(
   "/admin/post/delete/:userId/:postId",

@@ -54,8 +54,27 @@ exports.getUserPosts = (req,res) => {
 };
 
 
-exports.removePost = () => {
-  console.log("removePost");
+exports.removePost = (req,res) => {
+  let userId = req.params.userId;
+  let postUserId = req.params.userPostId;
+  let post = req.params.postId;
+  if (userId != postUserId){
+      return res.status(400).json({
+          message: "You dont have the rights to remove Content"
+      })
+  } else{
+    Post.findByIdAndDelete(post, (err,result)=>{
+        if (err) {
+            return res.status(400).json({
+                error: errorHandler(err)
+            })
+        } 
+        return result.status(200).json({
+            message:"post has been Removed!",
+            post:res
+        })
+    })
+  }
 };
 
 exports.adminRemovePost = () => {

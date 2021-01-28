@@ -3,18 +3,7 @@ import Layout from "../../components/userComponents/Layout";
 import Jokecard from "../../components/jokeCards";
 import { initial } from "lodash";
 var queryURL = "https://icanhazdadjoke.com/";
-// const jokes = [
-//   "Had this one Had this one Had this one Had this one",
-//   "Had this one Had this one Had this one Had this one",
-//   "Had this one Had this one Had this one Had this one",
-//   "Had this one Had this one Had this one Had this one",
-//   "Had this one Had this one Had this one Had this one",
-//   "Had this one Had this one Had this one Had this one",
-//   "Had this one Had this one Had this one Had this one",
-//   "Had this one Had this one Had this one Had this one",
-//   "Had this one Had this one Had this one Had this one",
-//   "Had this one Had this one Had this one Had this one",
-// ];
+
 export default function JokePage() {
   const [jokeList, setJokeList] = useState(undefined);
   const [error, setError] = useState(undefined);
@@ -25,21 +14,21 @@ const init=()=>{
   !(jokeList || error) && fetch(queryURL,{
     method:"GET",
     headers:{
-      "Content-Type": "application/x-www-form-urlencoded",
-      "Accept": "application/json"
+      "Accept": "text/plain"
     }
-  }).then(res=>res.json())
+  }).then(res=> res.json())
   .then(setJokeList
 ).catch(setError)
 }
 
   useEffect(()=>{
     init();
+    console.log(jokeList)
   },[])
 
   return (
     <Layout title="Dad Jokes" page="dlj">
-      {!loaded? <p>{JSON.stringify(jokeList)}</p>:"Loading..." }
+      {/* {!loaded? <p>{JSON.stringify(jokeList)}</p>:"Loading..." } */}
     </Layout>
   );
 }
