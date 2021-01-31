@@ -1,0 +1,13 @@
+.dl-cp-add-btn{
+    width: 70px;
+    padding: 10px 0;
+    border-radius: 0 0 35px 0;
+    background: black;
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: flex;
+}
+.dl-cp-abtn-icon{
+ margin: auto;
+}

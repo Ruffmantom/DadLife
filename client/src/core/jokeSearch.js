@@ -25,7 +25,7 @@ export const getJokes = () => {
 
 const postPosts = (formData, userId, token) => {
   fetch(imgQuery,{
-    method:'GET',
+    method:'POST',
     headers: {
       Accept: "application/json",
     }
