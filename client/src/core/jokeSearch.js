@@ -22,7 +22,11 @@ export const getJokes = () => {
 };
 
 
-
+// so when the add Post btn get pushed (steps)
+// .. 1st it will have you choose a photo
+// .. 2nd once photo is choosen it will upload to imgBB, and return the URL for editing
+// .. 3rd once it is edited, it will replace the photo that just got uploaded and return the new URL
+// .. 4th once that is done it there will be the screen that shows the photo and add a description box
 const postPosts = (formData, userId, token) => {
   fetch(imgQuery,{
     method:'POST',

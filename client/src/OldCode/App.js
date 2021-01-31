@@ -1,14 +1,12 @@
 import React from 'react';
 import { BrowserRouter as Router, Route } from "react-router-dom";
-import Signup from "./Pages/Signup";
+// import pages
+import Signup from "../Pages/Signup";
 import Jokes from "./Pages/Jokes";
 import Profile from "./Pages/Profile";
 import Community from "./Pages/Community";
 
-// import pages
 // import components
-
-
 
 function App() {
   return (
