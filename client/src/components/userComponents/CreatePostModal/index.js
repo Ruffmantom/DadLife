@@ -1,9 +1,14 @@
 import React, { useState, useEffect } from "react";
 import "./style.css";
 import closeIcon from "../../../assets/images/newicons/closeIcon.svg";
+// getting redux store
+import { useDispatch } from "react-redux";
+import { closeModal } from "../../../actions";
 
-export default function CreatePostModal({ userPostsId, token, setModalOpen }) {
-  const { data, setData } = useState({
+export default function CreatePostModal({ userPostsId, token }) {
+  // make sure to import dispatch so that you can use the actions.
+  const dispatch = useDispatch();
+  const { values, setValues } = useState({
     img: "",
     postText: "",
     userId: userPostsId,
@@ -11,9 +16,10 @@ export default function CreatePostModal({ userPostsId, token, setModalOpen }) {
     loading: false,
     error: "",
   });
-  const { img, postText, user, userId, formData, loading, error } = data;
-  const handleChange = (e) => (name) => {
-    setData(...data, [name] = e.target.value)
+  const { postText, user, userId, formData, loading, error } = values;
+  const handleChange = (name) => (event) => {
+    const value = name === "img"? event.target.files[0] : event.target.value;
+    setValues(...values, ([name] = event.target.value));
   };
   const formSubmit = (e) => {
     e.preventDefault();
@@ -25,9 +31,9 @@ export default function CreatePostModal({ userPostsId, token, setModalOpen }) {
       <form onSubmit={(e) => formSubmit(e)} className="cp-f-cont">
         <input
           type="file"
+          name="img"
           onChange={handleChange("img")}
           accept="image/*"
-          value={img}
         />
         <textarea
           typeof="text"
@@ -43,7 +49,7 @@ export default function CreatePostModal({ userPostsId, token, setModalOpen }) {
   return (
     <div className="cp-modal-overlay">
       <img
-        onClick={setModalOpen(false)}
+        onClick={() => dispatch(closeModal(false))}
         className="cp-modal-close"
         src={closeIcon}
         alt="#"
