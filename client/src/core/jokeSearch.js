@@ -1,11 +1,8 @@
-import { method } from "lodash";
-
+import { IMGBBAPI_KEY, IMGBBAPI } from "../config";
+import Axios from "axios";
 var queryURL = "https://icanhazdadjoke.com/";
 
-const IMGBB_KEY = process.env.REACT_APP_IMGBB_KEY; 
-const IMGBB_URL = process.env.REACT_APP_IMGBB_URL;
-
-var imgQuery = `${IMGBB_URL}?key=${IMGBB_KEY}`;
+var imgQuery = `${IMGBBAPI}?key=${IMGBBAPI_KEY}`;
 
 async function getJ() {
   const jokeData = await fetch(queryURL, {
@@ -21,23 +18,17 @@ export const getJokes = () => {
   getJ();
 };
 
-
 // so when the add Post btn get pushed (steps)
 // .. 1st it will have you choose a photo
 // .. 2nd once photo is choosen it will upload to imgBB, and return the URL for editing
 // .. 3rd once it is edited, it will replace the photo that just got uploaded and return the new URL
 // .. 4th once that is done it there will be the screen that shows the photo and add a description box
-const postPosts = (formData, userId, token) => {
-  fetch(imgQuery,{
-    method:'POST',
-    headers: {
-      Accept: "application/json",
-    }
-  })
-  .then(res.json)
-  .then(console.log(data))
-// what I want to accomplish
-//post the image first
-//get the responce and take the direct Image URL and then do another post to the DB
-//post to the DB with all the attributes needed for the user post
+
+export const postPosts = (userId, token, postData) => {
+  // var image = postData.image;
+ 
+  // what I want to accomplish
+  //post the image first
+  //get the responce and take the direct Image URL and then do another post to the DB
+  //post to the DB with all the attributes needed for the user post
 };

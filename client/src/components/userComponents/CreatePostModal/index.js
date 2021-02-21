@@ -1,4 +1,7 @@
 import React, { useState, useEffect } from "react";
+import { postPosts } from "../../../core/jokeSearch";
+import { IMGBBAPI_KEY, IMGBBAPI } from "../../../config";
+import Axios from "axios";
 import "./style.css";
 import closeIcon from "../../../assets/images/newicons/closeIcon.svg";
 // getting redux store
@@ -8,41 +11,63 @@ import { closeModal } from "../../../actions";
 export default function CreatePostModal({ userPostsId, token }) {
   // make sure to import dispatch so that you can use the actions.
   const dispatch = useDispatch();
-  const { values, setValues } = useState({
-    img: "",
-    postText: "",
-    userId: userPostsId,
-    formData: "",
-    loading: false,
-    error: "",
-  });
-  const { postText, user, userId, formData, loading, error } = values;
-  const handleChange = (name) => (event) => {
-    const value = name === "img"? event.target.files[0] : event.target.value;
-    setValues(...values, ([name] = event.target.value));
+  const defaultImg =
+    "https://www.plextek.com/wp-content/uploads/default-placeholder-1024x1024-500x500-1.png";
+  const [textValue, setTextValue] = useState("");
+  const [imgValues, setImgValues] = useState("");
+  const [uploadedImg, setUploadedImg] = useState("");
+  const [loaded, setLoaded] = useState(false);
+
+  const handleTextChange = (event) => {
+    setTextValue(event.target.value);
   };
-  const formSubmit = (e) => {
+  const handleImgChange = (event) => {
+    setImgValues(event.target.files[0]);
+  };
+
+  const imgFormSubmit = (e) => {
     e.preventDefault();
-    console.log(postText, userId);
+    const formData = new FormData();
+    formData.append("image", imgValues);
+    var imgQuery = `${IMGBBAPI}?key=${IMGBBAPI_KEY}`;
+    Axios.post(imgQuery, formData)
+      .then((res) => {
+        setUploadedImg(res.data.data.url);
+      })
+      .then(() => {
+        setLoaded(true);
+      });
   };
 
   const formComp = () => {
     return (
-      <form onSubmit={(e) => formSubmit(e)} className="cp-f-cont">
-        <input
-          type="file"
-          name="img"
-          onChange={handleChange("img")}
-          accept="image/*"
-        />
-        <textarea
-          typeof="text"
-          onChange={handleChange("postText")}
-          maxLength="150"
-          value={postText}
-        ></textarea>
-        <button typeof="submit">Post</button>
-      </form>
+      <div className="cp-f-cont">
+        {!loaded ? (
+          <form onSubmit={(e) => imgFormSubmit(e)}>
+            <input
+              type="file"
+              name="image"
+              onChange={(e) => handleImgChange(e)}
+              accept="image/*"
+            />
+
+            <button typeof="submit">Use Photo</button>
+          </form>
+        ) : (
+          <div>
+            <img
+              src={loaded && uploadedImg ? uploadedImg : defaultImg}
+              alt=""
+            />
+            <textarea
+              typeof="text"
+              onChange={(e) => handleTextChange(e)}
+              maxLength="150"
+              value={textValue}
+            ></textarea>
+          </div>
+        )}
+      </div>
     );
   };
 

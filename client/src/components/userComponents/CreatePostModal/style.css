@@ -10,10 +10,12 @@
 }
 .cp-f-cont{
     margin:auto;
-    display: flex;
-    flex-direction: column;
     width: 100%;
     max-width: 350px;
+}
+.cp-f-cont>form{
+    display: flex;
+    flex-direction: column;
 }
 .cp-modal-close{
     height: 25px;
