@@ -16,7 +16,7 @@ export default function CommunityPage() {
       <AddPostBtn />
       {modalOpen ? (
         <CreatePostModal
-          userId={user._id}
+        userPostsId={user._id}
           token={token}
         />
       ) : (

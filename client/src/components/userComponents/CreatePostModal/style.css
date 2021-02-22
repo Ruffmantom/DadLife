@@ -12,14 +12,55 @@
     margin:auto;
     width: 100%;
     max-width: 350px;
+    padding-top:20px;
 }
 .cp-f-cont>form{
     display: flex;
     flex-direction: column;
+}
+.add-post-text-cont{
+    width: 330px;
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+}
+.add-post-text-cont>button{
+    margin: 0;
+}
+.cp-f-cont>textarea{
+    width: 320px;
+    margin: 25px auto;
 }
 .cp-modal-close{
     height: 25px;
     position: absolute;
     right: 30px;
     top: 30px;
+}
+.img-preview-cont{
+    height: 380px;
+    width: 330px;
+    overflow: hidden;
+    margin: 0 auto;
+    background-color: white;
+    border-radius: 5px;
+    box-shadow: 0 6px 13px rgba(0, 0, 0, 0.20);
+}
+.preview-img{
+    height: 100%;
+    width: auto;
+    margin: 0 auto;
+    
+}
+.edit-img-btn-cont{
+    display: flex;
+    width: 330px;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0 auto;
+    padding-top: 10px;
+}
+.edit-img-btn-cont>button{
+    width: 100px;
+    margin: 0;
 }

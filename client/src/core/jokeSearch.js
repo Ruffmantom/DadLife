@@ -1,4 +1,4 @@
-import { IMGBBAPI_KEY, IMGBBAPI } from "../config";
+import { IMGBBAPI_KEY, IMGBBAPI, API } from "../config";
 import Axios from "axios";
 var queryURL = "https://icanhazdadjoke.com/";
 
@@ -26,7 +26,20 @@ export const getJokes = () => {
 
 export const postPosts = (userId, token, postData) => {
   // var image = postData.image;
- 
+  return fetch(`${API}/post/create/${userId}`, {
+    method: "POST",
+    headers: {
+      Accept: "application/json",
+      Authorization: `Bearer ${token}`,
+    },
+    body: JSON.stringify(postData),
+  })
+    .then((res) => {
+      return res.json();
+    })
+    .catch((err) => {
+      console.log(err);
+    });
   // what I want to accomplish
   //post the image first
   //get the responce and take the direct Image URL and then do another post to the DB

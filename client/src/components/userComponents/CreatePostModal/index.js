@@ -17,7 +17,18 @@ export default function CreatePostModal({ userPostsId, token }) {
   const [imgValues, setImgValues] = useState("");
   const [uploadedImg, setUploadedImg] = useState("");
   const [loaded, setLoaded] = useState(false);
-
+  const [imgStyles, setImgStyles] = useState("");
+  const styles = {
+    width: {
+      height: "auto",
+      width: "100%",
+      marginTop: "-25%",
+    },
+    height: {
+      height: "100%",
+      width: "auto",
+    },
+  };
   const handleTextChange = (event) => {
     setTextValue(event.target.value);
   };
@@ -38,7 +49,31 @@ export default function CreatePostModal({ userPostsId, token }) {
         setLoaded(true);
       });
   };
-
+  const handlePreveiwSize = (name) => {
+    console.log(name);
+    if (name === "height") {
+      setImgStyles(styles.height);
+    } else {
+      setImgStyles(styles.width);
+    }
+  };
+  const submitPost = (e) => {
+    e.preventDefault();
+    const postData = {
+      user: userPostsId,
+      postImgUrl: uploadedImg,
+      postText: textValue,
+      imgProperties: imgStyles,
+    };
+    // console.log(userPostsId + " " + token);
+    postPosts(userPostsId, token, postData);
+    setTextValue("");
+    setImgValues("");
+    setUploadedImg("");
+    setLoaded(false);
+    setImgStyles("");
+    dispatch(closeModal(false));
+  };
   const formComp = () => {
     return (
       <div className="cp-f-cont">
@@ -54,17 +89,42 @@ export default function CreatePostModal({ userPostsId, token }) {
             <button typeof="submit">Use Photo</button>
           </form>
         ) : (
-          <div>
-            <img
-              src={loaded && uploadedImg ? uploadedImg : defaultImg}
-              alt=""
-            />
-            <textarea
-              typeof="text"
-              onChange={(e) => handleTextChange(e)}
-              maxLength="150"
-              value={textValue}
-            ></textarea>
+          <div className="">
+            <div className="img-preview-cont">
+              <img
+                className="preview-img"
+                style={loaded && imgStyles ? imgStyles : { height: "100%" }}
+                src={loaded && uploadedImg ? uploadedImg : defaultImg}
+                alt=""
+              />
+            </div>
+            <div className="edit-img-btn-cont">
+              <button
+                onClick={() => handlePreveiwSize("width")}
+                className="width-btn"
+              >
+                Width
+              </button>
+              <p>Size By</p>
+              <button
+                onClick={() => handlePreveiwSize("height")}
+                className="height-btn"
+              >
+                Height
+              </button>
+            </div>
+            <form
+              className="add-post-text-cont"
+              onSubmit={(e) => submitPost(e)}
+            >
+              <textarea
+                typeof="text"
+                onChange={(e) => handleTextChange(e)}
+                maxLength="150"
+                value={textValue}
+              ></textarea>
+              <button typeof="submit">Post</button>
+            </form>
           </div>
         )}
       </div>

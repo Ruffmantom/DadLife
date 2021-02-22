@@ -7,8 +7,9 @@ const postSchema = new Schema({
         type: ObjectId,
         ref: "User",
     },
-    postText: { type: String, required: true },
+    postText: { type: String },
     postImgUrl: { type: String, required: true },
+    imgProperties: { type: Object, required: true },
     likes: { type: Number, default:0 }
 });
 const Posts = mongoose.model("Posts", postSchema);
