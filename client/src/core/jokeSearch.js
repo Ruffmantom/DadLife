@@ -50,15 +50,16 @@ export const postPosts = (userId, token, postData) => {
     return fetch(`${API}/post/create/${userId}`, {
       method: "POST",
       headers: {
-        Accept: "application/json",
-        Authorization: `Bearer ${token}`,
+        "Accept": "application/json",
+        "content-Type": 'application/json',
+        "Authorization": `Bearer ${token}`,
       },
       body: JSON.stringify(postData),
-    })
-      .then((res) => {
-        return res.json();
-      })
-      .catch((err) => {
+    }).then((res) => {
+        return res.json({
+            data:postData
+        });
+      }).catch((err) => {
         console.log(err);
       });
 

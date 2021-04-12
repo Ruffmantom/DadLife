@@ -19,11 +19,15 @@ export default function CreatePostModal({ userPostsId, token, curUserName }) {
   const submitPost = (e) => {
     e.preventDefault();
     const postData = {
-      posterId: userPostsId,
       userName: curUserName,
+      posterId: userPostsId,
       postText: textValue,
     };
     postPosts(userPostsId, token, postData);
+
+    console.log('posting the post')
+    console.log(postData)
+    console.log('posting the post')
     setTextValue("");
     setLoaded(false);
     dispatch(closeModal(false));

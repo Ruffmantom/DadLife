@@ -26,7 +26,7 @@ const init=()=>{
 
   useEffect(()=>{
     init();
-    console.log(jokeList)
+    // console.log(jokeList)
   },[])
 
   return (
