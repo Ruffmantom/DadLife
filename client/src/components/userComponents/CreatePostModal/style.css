@@ -8,6 +8,18 @@
     background-color: #898989;
     top:0;
 }
+.cp-f-div{
+    display: flex;
+    flex-direction: column;
+}
+.post-text{
+    min-height: 250px;
+    margin-bottom: 25px;
+}
+.post-title{
+    margin: 2rem 0;
+    color: white;
+}
 .cp-f-cont{
     margin:auto;
     width: 100%;

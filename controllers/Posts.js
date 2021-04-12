@@ -1,9 +1,9 @@
-const Post = require("../models/post");
+const Posts = require("../models/Posts");
 const { errorHandler } = require("../helpers/dbErrorHandler");
 // define the methods for the posts controller
 
 exports.create = (req, res) => {
-  const post = new Post(req.body);
+  const post = new Posts(req.body);
   post.save((err, data) => {
     if (err) {
       return res.status(400).json({
@@ -15,7 +15,7 @@ exports.create = (req, res) => {
 };
 
 exports.getAllPosts = (req,res) => {
-    Post.find()
+    Posts.find()
     .exec((err, post) => {
         if (err) {
             return res.status(400).json({
@@ -39,7 +39,7 @@ const createUsersPostList = (allPosts, userId) => {
 }
 exports.getUserPosts = (req,res) => {
     let userId = req.params.userId;
-    Post.find()
+    Posts.find()
     .exec((err, posts) => {
         if (err) {
             return res.status(400).json({
@@ -63,7 +63,7 @@ exports.removePost = (req,res) => {
           message: "You dont have the rights to remove Content"
       })
   } else{
-    Post.findByIdAndDelete(post, (err,result)=>{
+    Posts.findByIdAndDelete(post, (err,result)=>{
         if (err) {
             return res.status(400).json({
                 error: errorHandler(err)

@@ -9,7 +9,7 @@ require('dotenv').config();
 // import routes
 const authRoutes = require('./routes/auth');
 const userRoutes = require('./routes/user');
-const postRoutes = require('./routes/post');
+const postRoutes = require('./routes/Posts');
 
 // app
 const app = express();

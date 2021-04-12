@@ -7,7 +7,7 @@ const {
   getUserPosts,
   removePost,
   adminRemovePost,
-} = require("../controllers/post");
+} = require("../controllers/Posts");
 const { requireSignin, isAuth, isAdmin } = require("../controllers/auth");
 const { userById } = require("../controllers/user");
 
